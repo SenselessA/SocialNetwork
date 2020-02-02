@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+.app-wrapper {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  grid-template-areas: 
+  "h h"
+  "n c";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+}
+
+.app-wrapper-content {
+  background-color: rgb(191, 191, 248);
+}
+
+.header {
+  grid-area: h;
+  background-color: rgb(83, 212, 83);
+}
+
+.header img {
+  margin: 5px;
+  margin-left: 20px;
+  width: 80px;
+}
+
+.content {
+  grid-area: c;
+  background-color: rgba(119, 164, 247, 0.267);
+}
+
+.btn {
+  font-size: 25px;
+}

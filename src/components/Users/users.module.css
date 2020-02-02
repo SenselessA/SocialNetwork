@@ -1,0 +1,13 @@
+.userPhoto {
+    width: 50px
+}
+
+.numberPages {
+    display: flex;
+    flex-wrap: wrap;    
+}
+
+.pageNumber {
+    cursor: pointer;
+    padding: 2px;
+}
