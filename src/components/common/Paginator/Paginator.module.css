@@ -2,3 +2,15 @@
     font-weight: bold;
     color: rgb(251, 255, 0);
 }
+
+.pageNumber {
+    padding: 5px;
+    margin: 0px 0px;
+    border: 1px solid rgba(134, 134, 134, 0.425);
+
+    cursor: pointer;
+}
+
+.numberPages {
+    margin: 20px 120px;
+}
