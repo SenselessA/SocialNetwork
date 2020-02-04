@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import { Route, withRouter, HashRouter } from 'react-router-dom';
+import { Route, withRouter, HashRouter, Redirect, Switch } from 'react-router-dom';
 import UsersContainer from './components/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import LoginPage from './components/Login/Login';
@@ -38,6 +38,10 @@ class App extends React.Component {
         <Navbar />
         <div className='app-wrapper-content'>
 
+
+          <Route path='/'
+            render={() => <Redirect to={'/profile'} />} />
+
           <Route path='/profile/:userId?'
             render={withSuspense(ProfileContainer)} />
 
@@ -51,6 +55,8 @@ class App extends React.Component {
           <Route path='/users' render={() => <UsersContainer />} />
 
           <Route path='/login' render={() => <LoginPage />} />
+
+
 
         </div>
       </div>
