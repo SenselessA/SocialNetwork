@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import { Route, withRouter, HashRouter, Redirect, Switch } from 'react-router-dom';
+import { Route, withRouter, HashRouter, Redirect } from 'react-router-dom';
 import UsersContainer from './components/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import LoginPage from './components/Login/Login';
@@ -33,31 +33,30 @@ class App extends React.Component {
     }
 
     return (
-      <div className="app-wrapper">
+      <div className="app-container">
         <HeaderContainer />
-        <Navbar />
-        <div className='app-wrapper-content'>
+        
+        <div className="main-wrapper">
+          <Navbar />
 
+          <div className='app-wrapper-content'>
+            <Route path='/'
+              render={() => <Redirect to={'/profile'} />} />
 
-          <Route path='/'
-            render={() => <Redirect to={'/profile'} />} />
+            <Route path='/profile/:userId?'
+              render={withSuspense(ProfileContainer)} />
 
-          <Route path='/profile/:userId?'
-            render={withSuspense(ProfileContainer)} />
+            <Route path='/dialogs'
+              render={withSuspense(DialogsContainer)} />
 
-          <Route path='/dialogs'
-            render={withSuspense(DialogsContainer)} />
+            <Route path='/news' render={() => <News />} />
+            <Route path='/music' render={() => <Music />} />
+            <Route path='/settings' render={() => <Settings />} />
 
-          <Route path='/news' render={() => <News />} />
-          <Route path='/music' render={() => <Music />} />
-          <Route path='/settings' render={() => <Settings />} />
+            <Route path='/users' render={() => <UsersContainer />} />
 
-          <Route path='/users' render={() => <UsersContainer />} />
-
-          <Route path='/login' render={() => <LoginPage />} />
-
-
-
+            <Route path='/login' render={() => <LoginPage />} />
+          </div>
         </div>
       </div>
 

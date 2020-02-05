@@ -1,8 +1,82 @@
 .mainPhoto {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    border-radius: 50px;
 }
 
 .contact{
-    padding-left: 10px;
+    padding: 5px;
+}
+
+.photoSetting {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+}
+
+.profileWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.downloadPhoto {
+    width: 100%;
+    margin: 10px;
+}
+
+.btnEdit{
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  padding: 8px 40px;
+  margin: 5px 10px;
+  border-radius: 30px;
+  background-image: linear-gradient(45deg, #6ab1d7 0%, #33d9de 50%, #002878 100%);
+  background-position: 100% 0;
+  background-size: 200% 200%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,40,120,.35);
+  transition: .5s;
+}
+
+.btnEdit:hover {
+    box-shadow: 0 0 0 0 rgba(0,40,120,0);
+    background-position: 0 0;
+  }
+
+.info {
+    width: 100%;
+    margin: 0px 20px;
+
+    background-color: white;
+    border-radius: 20px;
+}
+
+.status {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.statusInput {
+    width: 300px;
+	font-size: 15px;
+	padding: 5px;
+	border: 1px solid #cecece;
+	background: #F6F6f6;
+	border-radius: 8px;
+}
+
+.editStatus {
+    cursor: pointer;
+}
+
+.profileInfo {
+    padding: 0px 0px 5px 10px;
 }

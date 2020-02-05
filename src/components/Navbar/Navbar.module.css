@@ -1,7 +1,9 @@
 .nav {
-    grid-area: n;
-    background-color: burlywood;
-  }
+    width: 250px;
+    margin-left: 30px;
+
+    background-color: rgba(35, 102, 168, 0.2);
+}
 
 .nav__item {
     font-size: 16px;

@@ -21,46 +21,49 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
 
     const onSubmit = (formData) => {
         saveProfile(formData)
-        .then(()=>{setEditMode(false)})
+            .then(() => { setEditMode(false) })
     }
 
     return (
-        <div>
-            {/* <div>
-                <img alt="photoone" src="https://images.unsplash.com/photo-1499084732479-de2c02d45fcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
-            </div> */}
-            <div>
+        <div className={s.profileWrapper}>
+            <div className={s.photoSetting}>
                 <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt='ava' />
-                {isOwner && <input type="file" onChange={mainPhotoSelected} />}
-
-                { editMode 
-                ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit}/> 
-                : <ProfileData goToEditMode={ () => {setEditMode(true)} } profile={profile} isOwner={isOwner} />}
-
-                <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+                {isOwner &&
+                    <div className={s.downloadPhoto}>
+                        <input type="file" onChange={mainPhotoSelected} />
+                    </div>}
             </div>
+
+            <div className={s.info}>
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+
+                {editMode
+                    ? <ProfileDataForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
+                    : <ProfileData goToEditMode={() => { setEditMode(true) }} profile={profile} isOwner={isOwner} />}
+            </div>
+
         </div>
     )
 }
 
 const ProfileData = ({ profile, isOwner, goToEditMode }) => {
     return <div>
-        {isOwner ? <div><button onClick={goToEditMode}>Edit</button></div> : null}
-        <div>
+        {isOwner ? <div><button className={s.btnEdit} onClick={goToEditMode}>Edit profile</button></div> : null}
+        <div className={s.profileInfo}>
             <b>FullName</b> {profile.fullName}
         </div>
-        <div>
+        <div className={s.profileInfo}>
             <b>Looking for a job:</b> {profile.lookingForAJob ? 'yes' : 'no'}
         </div>
         {profile.lookingForAJob &&
-            <div>
+            <div className={s.profileInfo}>
                 <b>My professional skills</b> {profile.lookingForAJobDescription}
             </div>
         }
-        <div>
+        <div className={s.profileInfo}>
             <b>About me:</b> {profile.aboutMe}
         </div>
-        <div>
+        <div className={s.profileInfo}>
             <b>Contacts</b> {Object.keys(profile.contacts).map(key => {
                 return <Contact key={key} contactTitle={key} contactValue={profile.contacts[key]} />
             })}

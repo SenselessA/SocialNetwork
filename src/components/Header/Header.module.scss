@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px 0px;
+
+    background-color: rgba(35, 102, 168, 0.2);
+
+    & h1 {
+        font-family: 'Indie Flower', cursive;
+        font-size: 40px;
+    }
+}
+
+.loginBlock a {
+    color: white
+}
+
+.iconHeader {
+    width: 55px;
+    height: 50px;
+}
