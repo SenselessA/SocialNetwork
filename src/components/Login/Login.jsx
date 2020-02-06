@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { login } from '../../redux/auth-reducer'
 import { Redirect } from 'react-router-dom'
 import style from '../common/FormsControls/FormsControls.module.css'
+import s from './Login.module.scss'
 
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
     return (

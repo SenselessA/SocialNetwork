@@ -4,6 +4,8 @@ import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import ProfileDataForm from './ProfileDataForm';
+import '../../../App.css';
+import cn from 'classnames'
 
 const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
 
@@ -30,7 +32,10 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
                 <img src={profile.photos.large || userPhoto} className={s.mainPhoto} alt='ava' />
                 {isOwner &&
                     <div className={s.downloadPhoto}>
-                        <input type="file" onChange={mainPhotoSelected} />
+                        <input type="file" id='file' onChange={mainPhotoSelected} />
+                        <label for='file' className={cn('btn', 'mainPhotoSelected')}>
+                            Выбрать файл
+                        </label>
                     </div>}
             </div>
 
@@ -48,7 +53,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
 
 const ProfileData = ({ profile, isOwner, goToEditMode }) => {
     return <div>
-        {isOwner ? <div><button className={s.btnEdit} onClick={goToEditMode}>Edit profile</button></div> : null}
+        {isOwner ? <div><button className='btn' onClick={goToEditMode}>Edit profile</button></div> : null}
         <div className={s.profileInfo}>
             <b>FullName</b> {profile.fullName}
         </div>

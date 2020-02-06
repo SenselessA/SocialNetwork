@@ -14,10 +14,25 @@
 }
 
 .loginBlock a {
-    color: white
+    color: white;
+    font-size: 18px;
 }
 
 .iconHeader {
     width: 55px;
     height: 50px;
+}
+
+.logBtn {
+    font-size: 18px;
+}
+
+.loginName {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
 }
