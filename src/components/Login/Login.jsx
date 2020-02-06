@@ -7,13 +7,14 @@ import { login } from '../../redux/auth-reducer'
 import { Redirect } from 'react-router-dom'
 import style from '../common/FormsControls/FormsControls.module.css'
 import s from './Login.module.scss'
+import '../../App.css'
 
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
     return (
         <form onSubmit={handleSubmit}>
             {createField("Email", "email", [required], Input)}
-            {createField("Password", "password", [required], Input, {type: "password"})}
-            {createField(null, "rememberMe", null, Input, {type: "checkbox"}, 'remember me')}
+            {createField("Password", "password", [required], Input, { type: "password" })}
+            {createField(null, "rememberMe", null, Input, { type: "checkbox" }, 'remember me')}
 
             {captchaUrl ? <img src={captchaUrl} alt="captcha" /> : null}
             {captchaUrl ? createField("symbols from image", "captcha", [required], Input, {}) : null}
@@ -24,7 +25,7 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
                 </div>
                 : null}
             <div>
-                <button>Login</button>
+                <button className="btn">Login</button>
             </div>
         </form>
     )
@@ -44,6 +45,9 @@ const Login = (props) => {
     return <div>
         <h1>Login</h1>
         <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
+        <p>Данные аккаунта для теста соц сети: </p>
+        <p><b>Email: </b>free@samuraijs.com <br />
+            <b>Password: </b> free</p>
     </div>
 }
 
